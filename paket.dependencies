@@ -21,3 +21,7 @@ nuget Fulma
 nuget Fake.Core.Target
 nuget Fake.IO.FileSystem
 nuget Farmer
+
+nuget Azure.Monitor.OpenTelemetry.Exporter
+nuget OpenTelemetry.Extensions.Hosting
+nuget OpenTelemetry.Instrumentation.AspNetCore

@@ -1,46 +1,26 @@
-# SAFE Template
+# Open Telemetry and Azure Monitor Exporter (Preview) with the SAFE Stack
 
-This template can be used to generate a full-stack web application using the [SAFE Stack](https://safe-stack.github.io/). It was created using the dotnet [SAFE Template](https://safe-stack.github.io/docs/template-overview/). If you want to learn more about the template why not start with the [quick start](https://safe-stack.github.io/docs/quickstart/) guide?
+This is a small tweak of the [SAFE Template](https://safe-stack.github.io/docs/template-overview/) which demonstrates how to get going with [Open Telemetry](https://devblogs.microsoft.com/dotnet/opentelemetry-net-reaches-v1-0/), including trying out the preview [Azure Monitor Exporter](https://docs.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable?tabs=net&WT.mc_id=DT-MVP-5003978).
 
-## Install pre-requisites
+Open Telemetry is a whole set of tools and standards which provide vendor and platform neutral observability. It is a big topic and this demo only touches the surface.
 
-You'll need to install the following pre-requisites in order to build SAFE applications
+In particular, it is recommended that you use the [Open Telemetry Collector](https://opentelemetry.io/docs/collector/) rather than directly export to vendor specific services as we are here.
 
-* [.NET Core SDK](https://www.microsoft.com/net/download) 5.0 or higher
-* [Node LTS](https://nodejs.org/en/download/)
+The Azure Monitor exporter is very much a work in progress and still lacks most features other than tracing.
 
-## Starting the application
+I also haven't included examples of the automatic [HttpClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Instrumentation.Http/README.md) and [SqlClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Instrumentation.SqlClient/README.md) instrumentation
 
-Before you run the project **for the first time only** you must install dotnet "local tools" with this command:
+It is just an example of how easy it is to get up and running with the bare minimum of tracing in Application Insights.
 
-```bash
-dotnet tool restore
-```
 
-To concurrently run the server and the client components in watch mode use the following command:
+# Deployment
 
-```bash
-dotnet run
-```
+The SAFE template comes with [Farmer](https://compositionalit.github.io/farmer/quickstarts/quickstart-3/). Providing you have the Azure CLI installed as explained in that link, then you can deploy the app by simply running
 
-Then open `http://localhost:8080` in your browser.
+`dotnet run azure`
 
-The build project in root directory contains a couple of different build targets. You can specify them after `--` (target name is case-insensitive).
+I have set up the Farmer template in `Build.fs` to add the App Insights instrumentation key to the app settings. This allows me to load it at startup in Server.fs, which is where the app setup and logging code lives.
 
-To run concurrently server and client tests in watch mode (you can run this command in parallel to the previous one in new terminal):
-
-```bash
-dotnet run -- RunTests
-```
-
-Client tests are available under `http://localhost:8081` in your browser and server tests are running in watch mode in console.
-
-Finally, there are `Bundle` and `Azure` targets that you can use to package your app and deploy to Azure, respectively:
-
-```bash
-dotnet run -- Bundle
-dotnet run -- Azure
-```
 
 ## SAFE Stack Documentation
 

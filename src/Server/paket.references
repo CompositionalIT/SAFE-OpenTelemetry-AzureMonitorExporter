@@ -1,2 +1,5 @@
 Saturn
 Fable.Remoting.Giraffe
+Azure.Monitor.OpenTelemetry.Exporter
+OpenTelemetry.Extensions.Hosting
+OpenTelemetry.Instrumentation.AspNetCore

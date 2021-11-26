@@ -29,17 +29,27 @@ Target.create "Bundle" (fun _ ->
 )
 
 Target.create "Azure" (fun _ ->
+    
+    let ai = appInsights {
+        name "OpenTelemetryAppInsights"
+    }
+
     let web = webApp {
-        name "Open_Telemetry_Example"
+        name "OpenTelemetryExample"
+        link_to_app_insights ai
+        setting "AppInsightsKey" ai.InstrumentationKey
         zip_deploy "deploy"
     }
+
+
     let deployment = arm {
         location Location.WestEurope
         add_resource web
+        add_resource ai
     }
 
     deployment
-    |> Deploy.execute "Open_Telemetry_Example" Deploy.NoParameters
+    |> Deploy.execute "OpenTelemetryExample" Deploy.NoParameters
     |> ignore
 )
 
