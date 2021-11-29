@@ -19,7 +19,7 @@ The SAFE template comes with [Farmer](https://compositionalit.github.io/farmer/q
 
 `dotnet run azure`
 
-I have set up the Farmer template in `Build.fs` to add the App Insights instrumentation key to the app settings. This allows me to load it at startup in Server.fs, which is where the app setup and logging code lives.
+I have set up the Farmer template in `Build.fs` to add the App Insights instrumentation key to the app's settings. This allows me to load it at startup in `Server.fs`, which is where the app setup and logging code lives.
 
 
 ## SAFE Stack Documentation
