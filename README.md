@@ -8,7 +8,7 @@ In particular, it is recommended that you use the [Open Telemetry Collector](htt
 
 The Azure Monitor exporter is very much a work in progress and still lacks most features other than tracing.
 
-I also haven't included examples of the automatic [HttpClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Instrumentation.Http/README.md) and [SqlClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Instrumentation.SqlClient/README.md) instrumentation
+I also haven't included examples of the automatic [HttpClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Instrumentation.Http/README.md) and [SqlClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Instrumentation.SqlClient/README.md) instrumentation.
 
 It is just an example of how easy it is to get up and running with the bare minimum of tracing in Application Insights.
 
